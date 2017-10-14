@@ -42,6 +42,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 			.addFilterBefore(fixedLocaleFilter, SecurityContextPersistenceFilter.class)
 			.authorizeRequests()
 				.antMatchers("/api/**").hasAnyRole("USER")
+				.antMatchers("/roled.html").hasAnyRole("STAFF")
 				.antMatchers(HttpMethod.POST, "/login").permitAll()
 				.anyRequest().permitAll()
 				.and()
